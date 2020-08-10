@@ -71,4 +71,7 @@ group :development do
   gem 'rails-erd'
   gem "better_errors"
   gem "binding_of_caller"
+  gem "letter_opener"
 end
+
+gem 'dotenv-rails'
