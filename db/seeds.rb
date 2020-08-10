@@ -13,7 +13,7 @@ Faker::Config.locale = 'fr'
 
 10.times do
   User.create!(
-    email: Faker::Internet.email,
+    email: "thibzlamiff2@yopmail.com",
     description: Faker::Lorem.paragraph_by_chars(number: 141, supplemental: false),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
