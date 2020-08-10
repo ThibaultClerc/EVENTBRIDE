@@ -8,6 +8,7 @@
 
 require 'faker'
 require 'activerecord-reset-pk-sequence'
+
 Faker::Config.locale = 'fr'
 
 10.times do
