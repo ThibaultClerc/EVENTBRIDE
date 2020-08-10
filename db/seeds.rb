@@ -22,7 +22,7 @@ end
 
 puts "#{User.all.count} users créés"
 
-30.times do
+10.times do
   Event.create!(
     start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-29'),
     duration: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60].sample,
