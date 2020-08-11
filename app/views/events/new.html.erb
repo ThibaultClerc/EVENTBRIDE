@@ -1,0 +1,38 @@
+<h1 class="jumbotron text-center mb-5 mt-5">Ajoute un event!</h1>
+
+<% if @event.errors.any? %>
+    <div class="alert alert-warning alert_message mx-auto" role="alert">
+      <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      </div>
+    <% end %>
+
+<%= form_for @event, :html => {:class => "mt-5 form-signin text-center mx-auto user_form mb-5"} do |f|%>
+
+  <div class="form-group">
+    <%= f.datetime_select :start_date, :ampm => true, :minute_step => 15 %>
+  </div>
+  <div class="form-group">
+    <%= f.select :duration, [['5', 5],['10',10]] %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :title, class:"form-control", placeholder:"Titre" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class:"form-control", placeholder:"Description" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :price, class:"form-control", placeholder:"Prix" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :location, class:"form-control", placeholder:"Lieu" %>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Créer le potin</button>
+  </div>
+
+  <% end %>

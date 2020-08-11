@@ -4,6 +4,17 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.create(event_params)
+    @event.admin_id = current_user.id
+    if @event.save
+      redirect_to event_path(@event.id)
+    else
+      render :new
+    end
   end
 
   def show
