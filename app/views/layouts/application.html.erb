@@ -40,8 +40,12 @@
       <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-light mr-3" %>
       <%= link_to "Connexion", new_user_session_path, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to "Mon Profil", user_path(current_user.id), class: "btn btn-outline-danger" %>
-      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+      
+        <p class="navbar-text mr-3 pt-3">Bienvenue, <%= current_user.first_name %></p>
+      
+     
+      <%= link_to "Mon Profil", user_path(current_user.id), class: "btn btn-light mr-3" %>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         <% end %>
     </form>
   </div>
