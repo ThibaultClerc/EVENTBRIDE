@@ -1,26 +1,29 @@
-<h1> Tu es sur la view Show de la method show du controller User </h1>
+<div class="container">
+  <div class="row mt-5 pt-5">
+    <div class="col-3 text-right">
+      <img style="height:200px;" class="rounded-circle" src="https://avatars1.githubusercontent.com/u/63822323?s=460&v=4" alt="Card image">
+    </div>
+    <div class="col-9 pb-2">
+      <h2 class="display-4"><%= @user.first_name%> <%= @user.last_name%></h2>
+      <p><%= @user.description%> </p>
+      <h5 class="font-weight-bold mb-2"><%= @user.email%> </h5>
+      <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-outline-danger text-center" %>
+    </div>
+  </div>
 
-<h1 class="jumbotron mt-5 text-center">Bienvenue sur la page de <%= @user.first_name%> <%= @user.last_name%> !</h1>
 
-<div class="text-center">
-<p> Nom : <%= @user.first_name%> </p>
-<p> Prénom : <%= @user.last_name%> </p>
-<p> Description : <%= @user.description%> </p>
-<p> Email : <%= @user.email%> </p>
-</div>
-
-<% @events.each do |event|%>
-  <div class="col-md-3 col-sm-4">
-      <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
-        <div class="card-header d-flex justify-content-between">
-          <a href="<%=event_path(event.id)%>"><%= event.title %></a>
+<div class="card-deck mt-5">
+  <% @events.each do |event| %>
+    <div class="col-md-3 col-sm-4">
+      <div class="card mb-3">
+        <div class="card-header">
+          <h3> <%= link_to "#{event.title}", event_path(event.id)%></h3>
+          <h6 class="card-subtitle text-muted">par <%= event.admin.first_name %></h6>
         </div>
-        <div class="card-body">
-          <h4 class="card-title"><%= event.description %></h4>
-        </div>
+        <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/200" alt="Card image">
       </div>
     </div>
   <% end %>
+</div>
 
-
-<%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-outline-danger" %>
+</div>

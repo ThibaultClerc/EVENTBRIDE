@@ -1,4 +1,4 @@
-<h1 class="jumbotron text-center mb-5 mt-5">Ajoute un event!</h1>
+<h1 class="display-4 jumbotron text-center mb-5 mt-5">Créer un évènement</h1>
 
 <% if @event.errors.any? %>
     <div class="alert alert-warning alert_message mx-auto" role="alert">
@@ -11,14 +11,9 @@
       </div>
 <% end %>
 
-<%= form_for @event, :html => {:class => "mt-5 form-signin text-center mx-auto user_form mb-5"} do |f|%>
+<%= form_for @event, :html => {:class => "w-25 mt-5 form-signin mx-auto user_form mb-5"} do |f|%>
 
-  <div class="form-group">
-    <%= f.datetime_select :start_date, :ampm => true, :minute_step => 15 %>
-  </div>
-  <div class="form-group">
-    <%= f.select :duration, [['5', 5],['10',10]] %>
-  </div>
+  
   <div class="form-group">
     <%= f.text_field :title, class:"form-control", placeholder:"Titre" %>
   </div>
@@ -26,13 +21,24 @@
     <%= f.text_area :description, class:"form-control", placeholder:"Description" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :price, class:"form-control", placeholder:"Prix" %>
-  </div>
-  <div class="form-group">
     <%= f.text_field :location, class:"form-control", placeholder:"Lieu" %>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-lg btn-primary btn-block">Créer le potin</button>
+    <%= f.text_field :price, class:"form-control", placeholder:"Prix" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :start_date, 'Date' %> </br>
+    <%= f.datetime_select :start_date, :ampm => true, :minute_step => 15 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration, 'Durée' %> </br>
+    <%= f.select :duration, [['15', 15], ['30',30], ['30', 30], ['60',60]] %> <span> minutes </span>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Créer l'évènement</button>
   </div>
 
   <% end %>
