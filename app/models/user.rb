@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # after_update :reset_password_send
 
   has_many :attendances, foreign_key:'participant_id', class_name: "Attendance"
-  has_many :events, through: :attendances, foreign_key:'admin_id', class_name: "Event"
+  has_many :events, foreign_key:'admin_id', class_name: "Event"
   
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
