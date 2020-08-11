@@ -11,13 +11,17 @@ require 'activerecord-reset-pk-sequence'
 
 Faker::Config.locale = 'fr'
 
+i = 1
 10.times do
   User.create!(
-    email: "thibzlamiff2@yopmail.com",
+    email: "thibz#{i}@yopmail.com",
     description: Faker::Lorem.paragraph_by_chars(number: 141, supplemental: false),
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name,
+    password: 'azerty',
+    password_confirmation: 'azerty'
   )
+  i += 1
 end
 
 puts "#{User.all.count} users créés"

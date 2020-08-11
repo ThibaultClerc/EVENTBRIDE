@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
-  # private
+ 
+  before_action :configure_devise_parameters, if: :devise_controller?
 
-  # # Overwriting the sign_out redirect path method
-  # def after_sign_out_path_for(resource_or_scope)
-  #   root_path
-  # end
+  def configure_devise_parameters
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation)}
+    devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation)}
+  end
+
 end
