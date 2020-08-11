@@ -9,6 +9,8 @@
 require 'faker'
 require 'activerecord-reset-pk-sequence'
 
+::Rails.application.config.action_mailer.perform_deliveries = false
+
 Faker::Config.locale = 'fr'
 
 i = 1
