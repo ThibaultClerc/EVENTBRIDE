@@ -1,3 +1,26 @@
 <h1> Tu es sur la view Show de la method show du controller User </h1>
 
+<h1 class="jumbotron mt-5 text-center">Bienvenue sur la page de <%= @user.first_name%> <%= @user.last_name%> !</h1>
+
+<div class="text-center">
+<p> Nom : <%= @user.first_name%> </p>
+<p> Prénom : <%= @user.last_name%> </p>
+<p> Description : <%= @user.description%> </p>
+<p> Email : <%= @user.email%> </p>
+</div>
+
+<% @events.each do |event|%>
+  <div class="col-md-3 col-sm-4">
+      <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
+        <div class="card-header d-flex justify-content-between">
+          <a href="<%=event_path(event.id)%>"><%= event.title %></a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><%= event.description %></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
 <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-outline-danger" %>

@@ -1,2 +1,33 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="container text-center">
+  <div class="welcome mb-5 mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-1">Eventbride</h1>
+      
+      <h4 class="text-center"> Bienvenue sur Eventbride, un site où tu peux participer à des évènements autour de chez toi</h4>
+      
+      <p class="h3 mt-4"><%= link_to "Créer un évènement", new_event_path, class: "btn btn-dark mt-3" %></p>
+      <a href="https://en.wikipedia.org/wiki/Gossip"><img src="https://images.vexels.com/media/users/3/157869/isolated/preview/13916a3fd62c9de9a2fdb623b38c0d1a-bare-teeth-open-mouth-icon-by-vexels.png" alt="The Gossip Project" width="100"></a>
+    </div>
+
+    <h2>Bienvenue sur ta session <%= current_user.first_name %> <%= current_user.last_name %> !</h2>
+    <h3 class="mt-4">Voici tous les events :</h3>
+  </div>
+</div>
+
+<div class="card-deck">
+  <% @events.sort.each do |event| %>
+    <div class="col-md-3 col-sm-4">
+      <div class="card border-dark mb-3 mx-auto " style="max-width: 20rem;">
+        <div class="card-header d-flex justify-content-between">
+          <a href="<%=event_path(event.id)%>"><%= event.title %></a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><%= event.description %></h4>
+          <p class="card-text"><%= event.admin.first_name %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="container justify-content-center">
+
+
+<div class="jumbotron text-center">
+  <h1 class="display-3 mt-5">Event n°<%= params[:id]%></h1>
+  <p class="h3"><%= @event.title %></p>
+
+  <p class="h4"><%= link_to "#{@event.admin.first_name} #{@event.admin.last_name}", user_path(@admin.id)%>
+  
+  <hr class="my-4">
+
+  <blockquote class="blockquote ">
+  <p class="h4"><%= @event.description %></p>
+  </blockquote>
+
+  <% if current_user.id == @event.admin.id%>
+  <p class="lead">
+    <%= link_to "Modifier l'event'", edit_event_path(@event.id), class: "btn btn-warning mt-3 mb-3"%>
+    <%= link_to "Supprimer l'event'", event_path, method: :delete, class: "btn btn-danger mt-3 mb-3"%>
+  </p>
+   <% else %>
+   <% end %>
+  
+</div>
+
+
+</div>
