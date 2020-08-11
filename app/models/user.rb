@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
   after_create :welcome_send
+  # after_update :reset_password_send
 
   has_many :attendances, foreign_key:'participant_id', class_name: "Attendance"
   has_many :events, through: :attendances, foreign_key:'admin_id', class_name: "Event"
@@ -12,4 +13,8 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
+  # def reset_password_send
+  #   UserMailer.reset_password_email(self).deliver_now
+  # end
 end
