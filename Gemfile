@@ -76,3 +76,4 @@ end
 
 gem 'dotenv-rails'
 gem 'devise'
+gem 'stripe'
