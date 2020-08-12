@@ -24,13 +24,13 @@
               <% end %>
           </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Paiement pour participer à un évènement"
-          data-amount="500"
-          data-currency="eur"
-          data-locale="auto"></script>
-<% end %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Paiement pour participer à un évènement"
+            data-amount="<%= @event.price * 100 %>"
+            data-currency="eur"
+            data-locale="auto"></script>
+          <% end %>
         
         
       </div>
