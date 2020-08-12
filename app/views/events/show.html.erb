@@ -28,8 +28,7 @@
 
         <% if current_user.present? && current_user.id == @event.admin.id%>
           <p class="lead">
-            <%= link_to "Modifier l'event", edit_event_path(@event.id), class: "btn btn-warning mt-3 mb-3"%>
-            <%= link_to "Supprimer l'event", event_path, method: :delete, class: "btn btn-danger mt-3 mb-3"%>
+            <%= link_to "Gérer l'évènement", event_attendances_path(@event.id), class: "btn btn-warning mt-3 mb-3"%>
           </p>
         <% end %>
         

@@ -1,0 +1,20 @@
+<div class="container justify-content-center mt-5">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Participant</th>
+            <th scope="col">Date de la réservation</th>
+          </tr>
+        </thead>
+        <% @participants.each do |participant| %>
+          <tr class="table-light">
+            <th scope="row"><%= participant.first_name%> <%= participant.last_name%></th>
+            <td><%= @participant_reservation_date.find_by(participant_id: participant.id).created_at %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

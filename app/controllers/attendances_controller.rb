@@ -1,4 +1,5 @@
 class AttendancesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @attendance = Attendance.new
@@ -33,6 +34,13 @@ class AttendancesController < ApplicationController
   end
 
   def index
+    @event = Event.find(params[:event_id])
+    @participants = @event.participants
+    puts "$"*60
+    puts "$"*60
+    @participant_reservation_date = @event.attendances
+    puts "$"*60
+    puts "$"*60
   end
   
 end
