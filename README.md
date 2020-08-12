@@ -1,3 +1,3 @@
 # README
 
-https://git.heroku.com/eventbride-clerc.git
+https://eventbride-clerc.herokuapp.com/
