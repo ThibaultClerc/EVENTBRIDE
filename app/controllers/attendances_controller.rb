@@ -4,6 +4,10 @@ class AttendancesController < ApplicationController
   def new
     @attendance = Attendance.new
     @event = Event.find(params[:event_id])
+    if current_user.id == @event.admin.id
+    else
+    redirect_to event_path
+    end
   end
 
   def create
