@@ -8,7 +8,8 @@
   left: 80%;
   transform: translate(-50%, -50%);
   font-size: 2em;
-  color: white
+  color: white;
+  text-shadow: 3px 3px 16px #272634;
 }
 
 .three-dots-of-profile-pic:hover {
