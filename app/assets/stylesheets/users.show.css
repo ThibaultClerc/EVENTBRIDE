@@ -1,0 +1,17 @@
+.profile-pic {
+  position: relative
+}
+
+.three-dots-of-profile-pic {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: white
+}
+
+.three-dots-of-profile-pic:hover {
+  cursor: pointer;
+  font-size: 2.5em;
+}
