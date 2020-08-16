@@ -4,9 +4,18 @@ class AttendancesController < ApplicationController
   def new
     @attendance = Attendance.new
     @event = Event.find(params[:event_id])
+    puts "$"*60
+    puts "$"*60
+    puts "$"*60
+    puts current_user.first_name
+    puts @event.admin.first_name
+    puts !@event.participants.include?(current_user)
+    puts "$"*60
+    puts "$"*60
+    puts "$"*60
     if current_user.id == @event.admin.id
+      redirect_to event_path(params[:event_id])
     else
-    redirect_to event_path
     end
   end
 
