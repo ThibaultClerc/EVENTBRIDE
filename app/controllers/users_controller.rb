@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :is_current_user_profile_page?, only: [:show]
  
   def show
-    
     @user = current_user
     @events = @user.events
   end
