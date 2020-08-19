@@ -1,27 +1,14 @@
+<%= render "main_banner"%>
+
 <div class="container">
-  <div class="welcome mb-5 mt-5">
-    <div class="jumbotron">
-      <h1 class="display-1">Eventbride</h1>
-      <h4 class=""> Bienvenue sur Eventbride, un site où tu peux participer à des évènements autour de chez toi</h4>
-      <p class="h3 mt-4"><%= link_to "Créer un évènement", new_event_path, class: "btn btn-dark mt-3" %></p>
-    </div>
-  </div>
-
-
-<div class="card-deck">
-  <% @events.sort.each do |event| %>
-    <div class="col-md-3 col-sm-4">
-      <div class="card mb-3">
-        <div class="card-header">
-          <h3> <%= link_to "#{event.title}", event_path(event.id)%></h3>
-          <h6 class="card-subtitle text-muted">par <%= event.admin.first_name %></h6>
-        </div>
-        <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/200" alt="Card image">
+  <div class="card-group">
+    <% @events.sort.each do |event| %>
+      <div class="col-md-3 col-sm-4">
+        <%= render partial: "event_card", locals: {event: event}%>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
   
 </div>
 </div>

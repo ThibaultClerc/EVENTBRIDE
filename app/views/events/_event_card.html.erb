@@ -1,0 +1,12 @@
+<div class="card mb-3 event-card rounded">
+  <div class="event-card-image-container h-100">
+    <img style="height: 170px; width: 100%; display: block;" src="https://picsum.photos/170" alt="Card image">
+    <button type="button" id="go" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
+    </button><button type="button" id="love" class="btn btn-danger btn-circle"><i class="fa fa-heart"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <h5 class="card-text text-warning mt-3"><%= event.start_date%></h5>
+    <h3 class="text-truncate"><%= link_to "#{event.title}", event_path(event.id)%></h3>  
+  </div>
+</div>
