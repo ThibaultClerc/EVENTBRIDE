@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates :price,
     presence: true
 
-  validates :desccription,
+  validates :description,
     presence: true
   
   validates :location,
