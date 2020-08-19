@@ -1,16 +1,5 @@
 <h1 class="display-4 jumbotron text-center mb-5 mt-5">Créer un évènement</h1>
 
-<% if @event.errors.any? %>
-    <div class="alert alert-warning alert_message mx-auto" role="alert">
-      <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-      <ul>
-        <% @event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-      </div>
-<% end %>
-
 <%= form_for @event, :html => {:class => "w-25 mt-5 form-signin mx-auto user_form mb-5"} do |f|%>
 
   
@@ -24,7 +13,7 @@
     <%= f.text_field :location, class:"form-control", placeholder:"Lieu" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :price, class:"form-control", placeholder:"Prix" %>
+    <%= f.number_field :price, class:"form-control", placeholder:"Prix", in: 0...500 %>
   </div>
 
   <div class="form-group">
